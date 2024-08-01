@@ -2,7 +2,7 @@
 
 namespace ShapeAnalyser.Models.TriangleTypes
 {
-    public class EquilateralTriangle : IShape
+    public record EquilateralTriangle(double Side1, double Side2, double Side3) : IShape
     {
         public ETriangleType DetermineType() => ETriangleType.Equilateral;   
     }

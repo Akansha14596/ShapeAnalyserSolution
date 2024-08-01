@@ -26,7 +26,7 @@ namespace YourNamespace
 
                 var sides = Array.ConvertAll(input.Trim().Split(' '), double.Parse);
 
-                var shapeClassifier = new ShapeClassifier(new TriangleFactory());
+                var shapeClassifier = new ShapeClassifier(new ShapeFactory());
 
                 var shapeType = shapeClassifier.DetermineShapeType(sides);
 

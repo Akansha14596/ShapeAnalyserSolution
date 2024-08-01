@@ -1,4 +1,5 @@
 ﻿using ShapeAnalyser.Enums;
+using ShapeAnalyser.Models.TriangleTypes;
 
 namespace ShapeAnalyser.Models
 {
@@ -15,7 +16,7 @@ namespace ShapeAnalyser.Models
             Side3 = sides[2];
         }
 
-        public ETriangleType DetermineType()
+        public IShape CreateTriangle()
         {
             if (Side1 <= 0 || Side2 <= 0 || Side3 <= 0)
             {
@@ -29,16 +30,21 @@ namespace ShapeAnalyser.Models
 
             if (Side1 == Side2 && Side2 == Side3)
             {
-                return ETriangleType.Equilateral;
+                return new EquilateralTriangle(Side1, Side2, Side3);
             }
             else if (Side1 == Side2 || Side2 == Side3 || Side1 == Side3)
             {
-                return ETriangleType.Isosceles;
+                return new IsoscelesTriangle(Side1, Side2, Side3);
             }
             else
             {
-                return ETriangleType.Scalene;
+                return new ScaleneTriangle(Side1, Side2, Side3);
             }
+        }
+
+        public ETriangleType DetermineType()
+        {
+           return this.CreateTriangle().DetermineType();
         }
     }
 }

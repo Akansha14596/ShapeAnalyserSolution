@@ -2,7 +2,7 @@
 
 namespace ShapeAnalyser.Models.TriangleTypes
 {
-    public class ScaleneTriangle : IShape
+    public record ScaleneTriangle(double Side1, double Side2, double Side3) : IShape
     {
         public ETriangleType DetermineType() => ETriangleType.Scalene;
     }
