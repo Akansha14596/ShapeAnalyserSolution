@@ -5,6 +5,12 @@ namespace ShapeAnalyser.Factories
 {
     public class TriangleFactory : IShapeFactory
     {
+        /// <summary>
+        /// Create Shape
+        /// </summary>
+        /// <param name="sides"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
         public IShape CreateShape(double[] sides)
         {
             if (sides.Length != 3)
